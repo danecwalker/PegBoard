@@ -1,7 +1,7 @@
 #include <BOSL2/std.scad>
 
 $fa = 1;
-$fs = $preview ? 0.5 : 0.1;
+$fs = $preview ? 0.5 : 0.2;
 
 module tri(s=2) {
   polygon([
@@ -44,11 +44,11 @@ difference() {
   union() {
     difference() {
       slot_hole(h=5, r=5, l=10);
-      slot_hole(h=6, r=2.5, l=10, snap=true, snap_s=2, tolerance=0.1);
+      slot_hole(h=5, r=2.5, l=10, snap=true, snap_s=2, chamfered=true, tolerance=0.1);
     }
 
     slot_hole(h=5, r=2.5, l=10, snap=true, snap_s=2, chamfered=true);
   }
 
-  // translate([10,0,0]) cube(20, center=true);
+  translate([10,0,0]) cube(20, center=true);
 }
